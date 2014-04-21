@@ -743,7 +743,7 @@ func! GdbSetting()
 	set previewheight=12 " set gdb window initial height
 	set gdbprg=/usr/bin/gdb
 	run macros/gdb_mappings.vim     " source key mappings listed in this document
-
+<F7>
 	call ToggleGDB()
 endfunc
 map <silent><S-B> :call GdbSetting()<CR><CR>
@@ -838,7 +838,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Yggdroot/indentLine'
 Plugin 'mru.vim'
-
+Plugin 'vimgdb_runtime'
 
 
 ""gvim"""""""""""""""""""""function gvim () { (/usr/bin/gvim -f "$@" &) }""""""""""
