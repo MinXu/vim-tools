@@ -885,6 +885,11 @@ Plugin 'vimgdb_runtime'
 """""""""""""""""""""""""git commit -m 'ADD: pathogen & nerdtree'""""""""""""""""""
 """""""""""""""""""""""""git remote add origin git@github.com:perfectworks/vim.git"
 """""""""""""""""""""""""git push origin master""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""git pull origin master""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""git fetch origin master:tmp"""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""git diff tmp""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""git merge tmp"""""""""""""""""""""""""""""""""""""""""""
+
 
 
 ""git configure""""""""""""""""git config --global user.name "Your Name Here"
