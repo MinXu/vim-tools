@@ -891,8 +891,10 @@ Plugin 'vimgdb_runtime'
 """""""""""""""""""""""""""git merge tmp"""""""""""""""""""""""""""""""""""""""""""
 
 
+"""""""""""""""""""""""""sftp xumin0903@frs.sourceforge.net""""""""""""""""""""""""
+"""""""""""""""""""""""""ssh -t xumin0903,vim-tools@frs.sourceforge.net""""""""""""
 
-""git configure""""""""""""""""git config --global user.name "Your Name Here"
+
 """""""""""""""""""""""""""""""# Sets the default name for git to use when you commit
 """""""""""""""""""""""""""""""git config --global user.email "your_email@example.com"
 """""""""""""""""""""""""""""""# Sets the default email for git to use when you commit
