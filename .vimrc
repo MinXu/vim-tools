@@ -892,7 +892,7 @@ Plugin 'vimgdb_runtime'
 
 
 """""""""""""""""""""""""sftp xumin0903@frs.sourceforge.net""""""""""""""""""""""""
-"""""""""""""""""""""""""ssh -t xumin0903,vim-tools@frs.sourceforge.net create"""""
+"""""""""""""""""""""""""ssh -t xumin0903,vim-tools@shell.sourceforge.net create"""
 
 
 """""""""""""""""""""""""""""""# Sets the default name for git to use when you commit
