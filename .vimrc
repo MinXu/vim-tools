@@ -1,10 +1,10 @@
 "===============================================================================
 "        Filename: vimrc
-"          Author: mgqw(赖思敏)
-"           Email: mgqw@163.com
-"        Homepage: http://hi.baidu.com/mgqw/home
+"          Author: min.xu
+"           Email: xumin0903@126.com
+"        Homepage: http://hi.baidu.com/
 "         Created: 2010-08-02
-"        Modified:
+"        Modified: 2014-04-21
 "===============================================================================
 
 "
