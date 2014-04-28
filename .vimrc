@@ -467,7 +467,7 @@ func! Restore_Session()
 	rviminfo $HOME/.vim/viminfo
 endfunc
 
-map <silent><S-R> :call Restore_Session()<CR><CR>
+map <silent><c-R> :call Restore_Session()<CR><CR>
 
 """""""""""""设置开启ctags"""""""""""""   
 set tags=$HOME."/cmc/tags"
@@ -489,7 +489,7 @@ let Tlist_Process_File_Always=1
 "nnoremap <silent> <F6> :TlistToggle<CR>
 
 " Ctrl + T:  Switch on/off TagBa
-nnoremap <silent> <S-T> :TagbarToggle<CR>
+nnoremap <silent> <c-l> :TagbarToggle<CR>
 "let g:tagbar_left = 1                                "在左侧
 let g:tagbar_right = 1                                "在右侧
 let g:tagbar_width = 25                               "设置宽度
@@ -546,7 +546,7 @@ if has("cscope")
 endif  
 
 """"""""""""h/c""""""""""""""""""""""""""
-nnoremap <silent> <S-H> :A<CR>
+nnoremap <silent> <C-H> :A<CR>
 """"""""""""grep""""""""""""""""""""""""
 nnoremap <silent> <F7> :Grep<CR>
 """"""""""""自动补全"""""""""""""""""""
@@ -713,7 +713,7 @@ endfunc
 au Syntax * call HighlightFunctionsAndClasses()
 
 """"""""""""""""""CTRLP"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ctrlp_map = '<s-p>'
+let g:ctrlp_map = '<c-p>'
 
 """"""""""""""""""comments""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 ""x,cc  x,line number comments
@@ -746,7 +746,7 @@ func! GdbSetting()
 <F7>
 	call ToggleGDB()
 endfunc
-map <silent><S-B> :call GdbSetting()<CR><CR>
+map <silent><c-g> :call GdbSetting()<CR><CR>
 
 """"""""""""""""""""nerdcommenter""""""""""""""""""""""""""""""
 ""3,cc   注释
@@ -885,16 +885,9 @@ Plugin 'vimgdb_runtime'
 """""""""""""""""""""""""git commit -m 'ADD: pathogen & nerdtree'""""""""""""""""""
 """""""""""""""""""""""""git remote add origin git@github.com:perfectworks/vim.git"
 """""""""""""""""""""""""git push origin master""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""git pull origin master""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""git fetch origin master:tmp"""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""git diff tmp""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""git merge tmp"""""""""""""""""""""""""""""""""""""""""""
 
 
-"""""""""""""""""""""""""sftp xumin0903@frs.sourceforge.net""""""""""""""""""""""""
-"""""""""""""""""""""""""ssh -t xumin0903,vim-tools@shell.sourceforge.net create"""
-
-
+""git configure""""""""""""""""git config --global user.name "Your Name Here"
 """""""""""""""""""""""""""""""# Sets the default name for git to use when you commit
 """""""""""""""""""""""""""""""git config --global user.email "your_email@example.com"
 """""""""""""""""""""""""""""""# Sets the default email for git to use when you commit
