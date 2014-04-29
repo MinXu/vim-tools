@@ -577,7 +577,7 @@ let g:mniCpp_ShowAccess=1
 
 """"""""""""""""""""""""visualmark"""""""""""""""""""""""""""""""
 map <unique> <c-F8> <Plug>Vm_toggle_sign
-map <silent> <unique> mm <Plug>Vm_toggle_sign
+map <unique> mm <Plug>Vm_toggle_sign
 map <unique> <F8> <Plug>Vm_goto_next_sign
 map <unique> <s-F8> <Plug>Vm_goto_prev_sign
 
@@ -599,7 +599,7 @@ let g:EchoFuncKeyPrev='<F3>'
 let g:EchoFuncAutoStartBalloonDeclaration = 1
 
 """"""""""""""""""""""""""tasklist""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <F6> :<Plug>TaskList<CR>
+map <silent> <F6> <plug>TaskList
 
 """""""""""""""""""""""""下划线 行高亮""""""""""""""""""""""""""""""""
 "'cterm'选项要设置,否则下划线仍然出现
