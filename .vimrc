@@ -467,7 +467,7 @@ func! Restore_Session()
 	rviminfo $HOME/.vim/viminfo
 endfunc
 
-map <silent><c-R> :call Restore_Session()<CR><CR>
+map <silent> <unique> rs :call Restore_Session() <CR><CR>
 
 """""""""""""设置开启ctags"""""""""""""   
 set tags=$HOME."/cmc/tags"
