@@ -475,7 +475,7 @@ set autochdir"
 " 按下F12重新生成tag文件，并更新taglist
 "map <F12> :!find $HOME/cmc/ -name "*.h" -or -name "*.hpp" -or -name "*.c" -or -name "*.cc" -or -name "*.cpp" > $HOME/cmc/cscope.file;cscope -bkq -i $HOME/cmc/cscope.file;ctags -R  --fields=+lS --c++-kinds=+p --fields=+iaS --extra=+q $HOME/cmc/ <CR><CR>:TlistUpdate<CR>
 
-map <F12> :!cscope -Rbkq -f $HOME/cmc/cscope.out -s $HOME/cmc/;ctags --fields=+lS --c++-kinds=+p --fields=+iaS --extra=+q -R -f $HOME/cmc/tags $HOME/cmc <CR><CR>:TlistUpdate<CR>
+map <F12> :!cscope -Rbkq -f $HOME/cmc/cscope.out -s $HOME/cmc/;ctags --fields=+lS --c++-kinds=+p --fields=+iaS --extra=+q  --languages=c++ --langmap=c++:+.inl -h +.inl --c++-kinds=+px --fields=+aiKSz --extra=+q --exclude=lex.yy.cc --exclude=copy_lex.yy.cc -R -f $HOME/cmc/tags $HOME/cmc <CR><CR>:TlistUpdate<CR>
 
 """""""""""""""""Taglist设置"""""""""""""""""
 let Tlist_Auto_Open = 0  
