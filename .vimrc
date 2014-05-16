@@ -52,8 +52,8 @@ endif " has("autocmd")
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
-command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-			\| wincmd p | diffthis
+""command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+""			\| wincmd p | diffthis
 
 
 "set fileencodings=default,ucs-bom,utf-8,cp936,gbk,gb2312,gb18030,latin1       "mgqw add: 设置读取文件编码的种类
@@ -311,16 +311,16 @@ let g:winManagerWindowLayout='FileExplorer|TagList'
 "--------------------------------------------------------------------------------
 " mgqw add: 设置C/C++文件的格式
 "--------------------------------------------------------------------------------
-function SetCFileFormat()
+func! SetCFileFormat()
     "使用4个空格代替
     set tabstop=4       " 设置tab键的宽度
     set expandtab        " 设置是否使用空格代替tab
-endfunction
+endfunc
 
 "--------------------------------------------------------------------------------
 " mgqw add: 定义tags文件路径局部变量函数
 "--------------------------------------------------------------------------------
-function DefinePathParameters()
+func! DefinePathParameters()
     " mgqw add: 设置vim的ctags,cscope插件数据文件的路径
     let s:ctagFileDir       = $HOME."/vimplug/data/"           
     " mgqw add: 设置ctags文件的路径
@@ -332,12 +332,12 @@ function DefinePathParameters()
     " mgqw add: cscope数据文件的路径
     let s:cscope_data       = s:ctagFileDir."cscope.out"
     "echo "------------".s:.ctagFileDir"--------------"
-endfunction
+endfunc
 
 "--------------------------------------------------------------------------------
 " mgqw add: 删除DefinePathParameters()函数定义的tags文件局部变量函数
 "--------------------------------------------------------------------------------
-function DeletePathParameters()
+func! DeletePathParameters()
     unlet s:ctagFileDir
     unlet s:sys_tags
     unlet s:apps_tags
@@ -345,12 +345,12 @@ function DeletePathParameters()
     unlet s:tbsboot_tags
     unlet s:kernel_tags
     unlet s:cscope_data
-endfunction
+endfunc
 
 
 "mgqw add: 只有c,cpp文件才会调用相应函数加载ctags和cscope配置
 autocmd FileType c,cpp call AddCFileFuncList()
-function AddCFileFuncList()
+func! AddCFileFuncList()
 
     "代码文件格式设置函数
     call SetCFileFormat()
@@ -366,13 +366,13 @@ function AddCFileFuncList()
     "mgqw add: 删除变量定义
     call DeletePathParameters()
 
-endfunction
+endfunc
 
 
 "--------------------------------------------------------------------------------
 " mgqw add: 加载ctags设置属性函数定义
 "--------------------------------------------------------------------------------
-function AddCtagsFuncList()
+func! AddCtagsFuncList()
 
     "新的使用变量定义的相对路径的版本(两种设置语法随便二选一):
     "方法一的语法
@@ -391,12 +391,12 @@ function AddCtagsFuncList()
     "set tags+=~/vimplug/data/opensource-tags
     "set tags+=~/vimplug/data/tbsboot-tags
     "set tags+=/home/laisimin/vimtag/kernel-tags
-endfunction
+endfunc
 
 "--------------------------------------------------------------------------------
 " mgqw add: 加载cscope设置属性函数定义
 "--------------------------------------------------------------------------------
-function AddCscopeFuncList()
+func! AddCscopeFuncList()
     if has("cscope")
         " aUse both cscope and ctag
         set cscopetag
@@ -429,7 +429,7 @@ function AddCscopeFuncList()
         nmap <C-\>i :cs find i <C-R>=expand("<cfile>")<CR><CR>
         nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>  
     endif
-endfunction
+endfunc
 
 
 
@@ -467,10 +467,10 @@ func! Restore_Session()
 	rviminfo $HOME/.vim/viminfo
 endfunc
 
-map <silent> <unique> rs :call Restore_Session() <CR><CR>
+map <silent> rs :call Restore_Session() <CR><CR>
 
 """""""""""""设置开启ctags"""""""""""""   
-set tags=$HOME."/cmc/tags"
+set tags=$HOME/cmc/tags
 set autochdir"
 " 按下F12重新生成tag文件，并更新taglist
 "map <F12> :!find $HOME/cmc/ -name "*.h" -or -name "*.hpp" -or -name "*.c" -or -name "*.cc" -or -name "*.cpp" > $HOME/cmc/cscope.file;cscope -bkq -i $HOME/cmc/cscope.file;ctags -R  --fields=+lS --c++-kinds=+p --fields=+iaS --extra=+q $HOME/cmc/ <CR><CR>:TlistUpdate<CR>
@@ -576,10 +576,10 @@ let g:mniCpp_ShowAccess=1
 
 
 """"""""""""""""""""""""visualmark"""""""""""""""""""""""""""""""
-map <unique> <c-F8> <Plug>Vm_toggle_sign
-map <unique> mm <Plug>Vm_toggle_sign
-map <unique> <F8> <Plug>Vm_goto_next_sign
-map <unique> <s-F8> <Plug>Vm_goto_prev_sign
+map <c-F8> <Plug>Vm_toggle_sign
+map mm <Plug>Vm_toggle_sign
+map <F8> <Plug>Vm_goto_next_sign
+map <s-F8> <Plug>Vm_goto_prev_sign
 
 """""""""""""""""""""""""""""echofunc""""""""""""""""""""""""""""""""""
 ""这个两个键可以通过设置g:EchoFuncKeyNext和g:EchoFuncKeyPrev参数来修改。这个插件需要tags文件的支持
@@ -597,7 +597,7 @@ map <unique> <s-F8> <Plug>Vm_goto_prev_sign
 let g:EchoFuncKeyNext='<F4>'
 let g:EchoFuncKeyPrev='<F3>'
 let g:EchoFuncAutoStartBalloonDeclaration = 1
-
+let g:EchoFuncLangsUsed=["c","java","cpp"]
 """"""""""""""""""""""""""tasklist""""""""""""""""""""""""""""""""""""
 map <silent> <F6> <plug>TaskList
 
@@ -782,6 +782,22 @@ let MRU_Max_Menu_Entries = 20
 let MRU_Max_Submenu_Entries = 15
 ""设置MRU窗口默认子菜单显示多少条记录，默认10。如果有太多的记录显示在MRU窗口时，记录会被分割成子菜单，该配置设置子菜单里显示多少条记录；
 
+""""""""""""""""""""lookupfile setting"""""""""""""""""""""""""
+let g:LookupFile_MinPatLength = 2               "最少输入2个字符才开始查找
+let g:LookupFile_PreserveLastPattern = 0        "不保存上次查找的字符串
+let g:LookupFile_PreservePatternHistory = 1     "保存查找历史
+let g:LookupFile_AlwaysAcceptFirst = 1          "回车打开第一个匹配项目
+let g:LookupFile_AllowNewFiles = 0              "不允许创建不存在的文件
+if filereadable($HOME."/cmc/tags")                "设置tag文件的名字
+	let g:LookupFile_TagExpr = $HOME."/cmc/tags"
+endif
+let g:LookupFile_DisableDefaultMap = 1
+"映射LookupFile为,lk
+nmap <silent> <leader>lk :LUTags<cr>
+""映射LUBufs为,ll
+nmap <silent> <leader>ll :LUBufs<cr>
+"映射LUWalk为,lw
+nmap <silent> <leader>lw :LUWalk<cr>
 """"""""""""""""""""pathogen""""""""""""""""""""""""""""""""""""""""""""
 if v:version > 703 || (v:version == 703 && has('patch584'))
 	source $HOME/.vim/here/vim-pathogen/autoload/pathogen.vim
@@ -823,7 +839,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 
-Plugin 'fholgado/minibufexpl.vim'
+""Plugin 'fholgado/minibufexpl.vim'
 Plugin 'SuperTab'
 Plugin 'tagbar-phpctags'
 Plugin 'winmanager'
@@ -839,7 +855,8 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'Yggdroot/indentLine'
 Plugin 'mru.vim'
 Plugin 'vimgdb_runtime'
-
+Plugin 'lookupfile'
+Plugin 'genutils'
 
 ""gvim"""""""""""""""""""""function gvim () { (/usr/bin/gvim -f "$@" &) }""""""""""
 """""""""""""""""""""""""""function gvim () { (/usr/bin/gvim -f "$@" &) }""""""""""
