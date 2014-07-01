@@ -477,6 +477,8 @@ set autochdir"
 
 map <F12> :!cscope -Rbkq -f $HOME/cmc/cscope.out -s $HOME/cmc/;ctags --fields=+lS --c++-kinds=+p --fields=+iaS --extra=+q  --languages=c++ --langmap=c++:+.inl -h +.inl --c++-kinds=+px --fields=+aiKSz --extra=+q --exclude=lex.yy.cc --exclude=copy_lex.yy.cc -R -f $HOME/cmc/tags $HOME/cmc <CR><CR>:TlistUpdate<CR>
 
+
+
 """""""""""""""""Taglist设置"""""""""""""""""
 let Tlist_Auto_Open = 0  
 let Tlist_Ctags_Cmd = '/usr/bin/ctags' 
@@ -798,6 +800,8 @@ nmap <silent> <leader>lk :LUTags<cr>
 nmap <silent> <leader>ll :LUBufs<cr>
 "映射LUWalk为,lw
 nmap <silent> <leader>lw :LUWalk<cr>
+""""""""""""""""""""gtags""""""""""""""""""""""""""""""""""""""""""""""""""
+source /home/xumin/.vim/here/gtags.vim/plugin/gtags.vim
 """"""""""""""""""""pathogen""""""""""""""""""""""""""""""""""""""""""""
 if v:version > 703 || (v:version == 703 && has('patch584'))
 	source $HOME/.vim/here/vim-pathogen/autoload/pathogen.vim
@@ -822,6 +826,7 @@ Plugin 'tpope/vim-rails.git'
 Plugin 'L9'
 Plugin 'FuzzyFinder'
 
+Plugin 'gtags.vim'
 Plugin 'tasklist.vim'
 Plugin 'taglist.vim'
 Plugin 'Visual-Mark'
@@ -913,3 +918,6 @@ Plugin 'genutils'
 """""""""""""""""""""""""""""""git config --global credential.helper 'cache --timeout=3600'
 """""""""""""""""""""""""""""""# Set the cache to timeout after 1 hour (setting is in seconds)
 
+
+""Gtags""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""sudo atp-get install global""""""""""""""""""""""""""""""""""""""""""""""""""""""
