@@ -3,7 +3,13 @@ vim-tools
 
 vim tools gdb scripts
 
+sftp username,projectname@frs.sourceforge.net
+cd /home/frs/project/vim-tools/
+put xx
 
+git add xx
+git commit xx -m"yy"
+git push origin master
 
 install
 =========
